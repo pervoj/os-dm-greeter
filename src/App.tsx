@@ -4,7 +4,7 @@ import UserGrid from "./components/user-grid";
 import image30 from "./images/30.jpg";
 import image44 from "./images/44.jpg";
 import imageDomi from "./images/dominik.jpg";
-import hyprlandLogo from "./images/hyprland.svg";
+import hyprlandLogo from "./images/hyprland.png";
 import imagePervoj from "./images/pervoj.png";
 
 const users = lightdm?.users ?? [
@@ -67,7 +67,7 @@ function App() {
     >
       <UserGrid users={users} />
 
-      {logo && <img className="absolute bottom-4 left-4 max-h-8" src={logo} />}
+      {logo && <img className="fixed bottom-4 left-4 block" src={logo} />}
     </div>
   );
 }
