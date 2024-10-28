@@ -1,6 +1,7 @@
 import { extractColors } from "extract-colors";
 import { FinalColor } from "extract-colors/lib/types/Color";
-import { LightDMUser } from "nody-greeter-types";
+import { CircleUser } from "lucide-react";
+import { greeter_config, LightDMUser } from "nody-greeter-types";
 import { useEffect, useState } from "react";
 
 export default function UserGridItem({
@@ -10,6 +11,8 @@ export default function UserGridItem({
   user: LightDMUser;
   width: number;
 }) {
+  const image = user.image ?? greeter_config?.branding?.user_image;
+
   const [colors, setColors] = useState<FinalColor[]>([]);
 
   useEffect(() => {
@@ -41,12 +44,20 @@ export default function UserGridItem({
       style={{ width, backgroundImage: getBgImage() }}
     >
       <div className="mx-auto p-8">
-        <img
-          src={user.image}
-          alt=""
-          className="block size-32 rounded-full bg-white/5 shadow"
-          draggable="false"
-        />
+        <div className="block size-32 overflow-hidden rounded-full bg-white/10 shadow">
+          {image ? (
+            <img
+              src={image}
+              alt=""
+              className="block size-full"
+              draggable="false"
+            />
+          ) : (
+            <div className="grid size-full place-content-center opacity-50">
+              <CircleUser className="size-12" />
+            </div>
+          )}
+        </div>
       </div>
       <div className="truncate bg-black/30 p-4 text-center text-xl font-semibold leading-none">
         {user.display_name || user.username}

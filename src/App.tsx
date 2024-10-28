@@ -38,7 +38,7 @@ const users = lightdm?.users ?? [
   {
     username: "fbar3",
     display_name: "Foo Bar",
-    image: image30,
+    image: "",
   },
   {
     username: "fbar4",
