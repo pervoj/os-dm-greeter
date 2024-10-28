@@ -16,12 +16,13 @@ function App() {
               <img
                 src={user.image}
                 alt=""
-                className="w-12 h-12 rounded-full border-2 border-white/5 bg-white/5"
+                className="size-12 rounded-full border-2 border-white/5 bg-white/5"
               />
               <div className="grid gap-1 leading-none">
-                <span className="text-lg font-bold">{user.display_name}</span>
-                <span>{user.username}</span>
-                <span>"{user.image}"</span>
+                <span className="text-lg font-bold truncate">
+                  {user.display_name}
+                </span>
+                <span className="truncate">{user.username}</span>
               </div>
             </div>
           ))}
