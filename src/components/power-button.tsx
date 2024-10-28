@@ -62,7 +62,7 @@ export default function PowerButton() {
           onClick={() => setIsOpened(false)}
         ></div>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="flex flex-row gap-3 rounded-3xl border-2 border-white/5 bg-neutral-900 p-3">
+          <div className="grid grid-flow-col gap-3 rounded-3xl border-2 border-white/5 bg-neutral-900 p-3">
             {/* <ActionButton
               active={true}
               action={() => {}}
