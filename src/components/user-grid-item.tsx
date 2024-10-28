@@ -16,6 +16,7 @@ export default function UserGridItem({
   const [colors, setColors] = useState<FinalColor[]>([]);
 
   useEffect(() => {
+    if (!user.image) return;
     extractColors(user.image, {
       colorValidator: (r, g, b) => {
         const validate = (c: number) => c > 20 && c < 235;
