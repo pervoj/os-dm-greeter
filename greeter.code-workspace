@@ -1,0 +1,28 @@
+{
+  "folders": [{ "path": ".", "name": "DM Greeter" }],
+  "settings": {
+    "editor.tabSize": 2,
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[svg]": {
+      "editor.defaultFormatter": "jock.svg"
+    },
+    "tailwindCSS.experimental.classRegex": [
+      ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+      ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "vivaxy.vscode-conventional-commits",
+      "tamasfe.even-better-toml"
+    ]
+  }
+}
