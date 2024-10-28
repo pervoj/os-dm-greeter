@@ -1,8 +1,9 @@
-import { greeter_config, lightdm } from "nody-greeter-types";
-import UserGrid from "./components/user-grid";
-
 import { ChevronRight } from "lucide-react";
+import { greeter_config, lightdm } from "nody-greeter-types";
+import BatteryIndicator from "./components/battery-indicator";
+import UserGrid from "./components/user-grid";
 import { globalPadding } from "./constants";
+
 import image30 from "./images/30.jpg";
 import image44 from "./images/44.jpg";
 import imageDomi from "./images/dominik.jpg";
@@ -66,11 +67,7 @@ function App() {
     >
       <UserGrid users={users} />
 
-      {lightdm?.can_access_battery && (
-        <div className="fixed left-0 right-0 top-4">
-          {JSON.stringify(lightdm?.battery_data, null, 2)}
-        </div>
-      )}
+      <BatteryIndicator />
 
       <button
         className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
