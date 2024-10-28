@@ -1,6 +1,7 @@
 import { greeter_config, lightdm } from "nody-greeter-types";
 import UserGrid from "./components/user-grid";
 
+import { globalPadding } from "./constants";
 import image30 from "./images/30.jpg";
 import image44 from "./images/44.jpg";
 import imageDomi from "./images/dominik.jpg";
@@ -57,8 +58,6 @@ const users = lightdm?.users ?? [
 
 const logo = greeter_config?.branding?.logo ?? hyprlandLogo;
 
-const globalPadding = 24;
-
 function App() {
   return (
     <div
@@ -67,7 +66,13 @@ function App() {
     >
       <UserGrid users={users} />
 
-      {logo && <img className="fixed bottom-4 left-4 block" src={logo} />}
+      {logo && (
+        <img
+          className="fixed block"
+          style={{ bottom: globalPadding, left: globalPadding }}
+          src={logo}
+        />
+      )}
     </div>
   );
 }

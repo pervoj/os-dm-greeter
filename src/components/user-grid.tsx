@@ -1,31 +1,42 @@
+import { ChevronRight } from "lucide-react";
 import { LightDMUser } from "nody-greeter-types";
+import {
+  globalPadding,
+  gridGap,
+  gridItemWidth,
+  gridMaxCols,
+  gridMaxItemCount,
+  gridMaxRows,
+} from "../constants";
 import UserGridItem from "./user-grid-item";
 
-const width = 224;
-const gap = 16;
-
-const maxCols = 4;
-const maxRows = 2;
-const maxCount = maxCols * maxRows;
-
 export default function UserGrid({ users }: { users: LightDMUser[] }) {
-  const list = users.slice(0, maxCount);
+  const list = users.slice(0, gridMaxItemCount);
 
   const cols =
-    list.length < maxCount && list.length / maxRows > 1
-      ? Math.ceil(list.length / maxRows)
-      : maxCols;
+    list.length < gridMaxItemCount && list.length / gridMaxRows > 1
+      ? Math.ceil(list.length / gridMaxRows)
+      : gridMaxCols;
 
   return (
     <div
       className="mx-auto flex w-full flex-wrap justify-center"
-      style={{ gap, width: cols * width + (cols - 1) * gap }}
+      style={{
+        gap: gridGap,
+        width: cols * gridItemWidth + (cols - 1) * gridGap,
+      }}
     >
       {list.map((user) => (
-        <UserGridItem key={user.username} user={user} width={width} />
+        <UserGridItem key={user.username} user={user} width={gridItemWidth} />
       ))}
 
-      <button className="fixed bottom-4 right-4">Enter User Name &gt;</button>
+      <button
+        className="fixed flex cursor-pointer appearance-none items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100"
+        style={{ bottom: globalPadding, right: globalPadding }}
+      >
+        Enter User Name
+        <ChevronRight className="size-4" />
+      </button>
     </div>
   );
 }
