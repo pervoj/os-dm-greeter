@@ -68,9 +68,11 @@ function App() {
 
       {logo && (
         <img
+          src={logo}
+          alt=""
           className="fixed block"
           style={{ bottom: globalPadding, left: globalPadding }}
-          src={logo}
+          draggable="false"
         />
       )}
     </div>

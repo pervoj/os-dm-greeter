@@ -36,9 +36,8 @@ export default function UserGridItem({
   // [:has(:hover)_>_&:not(:hover)]:opacity-70 transition-opacity
 
   return (
-    <div
-      key={user.username}
-      className="group relative isolate grid cursor-pointer overflow-hidden rounded-xl bg-white/5 shadow"
+    <button
+      className="group relative isolate grid cursor-pointer overflow-hidden rounded-xl bg-white/5 shadow focus:outline-none focus-visible:ring"
       style={{ width, backgroundImage: getBgImage() }}
     >
       <div className="mx-auto p-8">
@@ -52,7 +51,7 @@ export default function UserGridItem({
       <div className="truncate bg-black/30 p-4 text-center text-xl font-semibold leading-none">
         {user.display_name || user.username}
       </div>
-      <div className="absolute inset-0 -z-10 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
-    </div>
+      <div className="absolute inset-0 -z-10 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"></div>
+    </button>
   );
 }
