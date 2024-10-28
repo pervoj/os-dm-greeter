@@ -1,7 +1,5 @@
-import { ChevronRight } from "lucide-react";
 import { LightDMUser } from "nody-greeter-types";
 import {
-  globalPadding,
   gridGap,
   gridItemWidth,
   gridMaxCols,
@@ -29,14 +27,6 @@ export default function UserGrid({ users }: { users: LightDMUser[] }) {
       {list.map((user) => (
         <UserGridItem key={user.username} user={user} width={gridItemWidth} />
       ))}
-
-      <button
-        className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
-        style={{ bottom: globalPadding, right: globalPadding }}
-      >
-        Enter User Name
-        <ChevronRight className="size-4" />
-      </button>
     </div>
   );
 }

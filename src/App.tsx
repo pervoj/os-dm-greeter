@@ -1,11 +1,11 @@
 import { greeter_config, lightdm } from "nody-greeter-types";
 import UserGrid from "./components/user-grid";
 
+import { ChevronRight } from "lucide-react";
 import { globalPadding } from "./constants";
 import image30 from "./images/30.jpg";
 import image44 from "./images/44.jpg";
 import imageDomi from "./images/dominik.jpg";
-import hyprlandLogo from "./images/hyprland.png";
 import imagePervoj from "./images/pervoj.png";
 
 const users = lightdm?.users ?? [
@@ -56,7 +56,7 @@ const users = lightdm?.users ?? [
   },
 ];
 
-const logo = greeter_config?.branding?.logo ?? hyprlandLogo;
+const logo = greeter_config?.branding?.logo;
 
 function App() {
   return (
@@ -65,6 +65,14 @@ function App() {
       style={{ padding: globalPadding }}
     >
       <UserGrid users={users} />
+
+      <button
+        className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
+        style={{ bottom: globalPadding, right: globalPadding }}
+      >
+        Enter User Name
+        <ChevronRight className="size-4" />
+      </button>
 
       {logo && (
         <img
