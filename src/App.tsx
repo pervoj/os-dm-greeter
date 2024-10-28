@@ -1,32 +1,30 @@
 import { lightdm } from "nody-greeter-types";
-import { useState } from "react";
 
-const users = lightdm.users;
+const users = lightdm.users ?? [];
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="w-screen h-screen fixed inset-0 dark bg-neutral-900 text-neutral-100">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div>
-        <h1>Users</h1>
-        <ul>
+    <div className="w-screen h-screen fixed inset-0 dark bg-neutral-900 text-neutral-100 grid place-content-center">
+      <div className="grid gap-3">
+        <h1 className="text-center">Users</h1>
+        <div className="grid gap-3">
           {users.map((user) => (
-            <li key={user.username}>{user.display_name}</li>
+            <div
+              key={user.username}
+              className="p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors grid grid-cols-[auto_1fr] gap-2 items-center"
+            >
+              <img
+                src={user.image}
+                alt=""
+                className="w-12 h-12 rounded-full border-2 border-white/5 bg-white/5"
+              />
+              <div className="grid gap-1">
+                <span className="text-lg font-bold">{user.display_name}</span>
+                <span>{user.username}</span>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
