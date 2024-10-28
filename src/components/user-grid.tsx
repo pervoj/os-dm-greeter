@@ -1,14 +1,23 @@
+import { ChevronRight } from "lucide-react";
 import { LightDMUser } from "nody-greeter-types";
 import {
+  globalPadding,
   gridGap,
   gridItemWidth,
   gridMaxCols,
   gridMaxItemCount,
   gridMaxRows,
 } from "../constants";
+import { TextButton } from "./button";
 import UserGridItem from "./user-grid-item";
 
-export default function UserGrid({ users }: { users: LightDMUser[] }) {
+export default function UserGrid({
+  users,
+  onSelected,
+}: {
+  users: LightDMUser[];
+  onSelected: (user: LightDMUser | undefined) => void;
+}) {
   const list = users.slice(0, gridMaxItemCount);
 
   const cols =
@@ -17,16 +26,32 @@ export default function UserGrid({ users }: { users: LightDMUser[] }) {
       : gridMaxCols;
 
   return (
-    <div
-      className="mx-auto flex w-full flex-wrap justify-center"
-      style={{
-        gap: gridGap,
-        width: cols * gridItemWidth + (cols - 1) * gridGap,
-      }}
-    >
-      {list.map((user) => (
-        <UserGridItem key={user.username} user={user} width={gridItemWidth} />
-      ))}
+    <div className="grid items-center">
+      <div
+        className="relative mx-auto flex w-full flex-wrap justify-center"
+        style={{
+          gap: gridGap,
+          width: cols * gridItemWidth + (cols - 1) * gridGap,
+        }}
+      >
+        {list.map((user) => (
+          <UserGridItem
+            key={user.username}
+            user={user}
+            width={gridItemWidth}
+            onSelected={onSelected}
+          />
+        ))}
+
+        <TextButton
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{ top: `calc(100% + ${globalPadding}px)` }}
+          onClick={() => onSelected(undefined)}
+        >
+          Enter User Name
+          <ChevronRight className="size-4" />
+        </TextButton>
+      </div>
     </div>
   );
 }

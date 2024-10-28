@@ -1,21 +1,29 @@
-import { ChevronRight } from "lucide-react";
+import { LightDMUser } from "nody-greeter-types";
+import { useState } from "react";
+import LoginForm from "./components/login-form";
+import Page from "./components/page";
 import UserGrid from "./components/user-grid";
 import Wrapper from "./components/wrapper";
-import { globalPadding } from "./constants";
 import { users } from "./utils/users";
 
 export default function App() {
+  const [page, setPage] = useState<"grid" | "form">("grid");
+  const [user, setUser] = useState<LightDMUser | undefined>();
+
   return (
     <Wrapper>
-      <UserGrid users={users} />
-
-      <button
-        className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
-        style={{ bottom: globalPadding, right: globalPadding }}
-      >
-        Enter User Name
-        <ChevronRight className="size-4" />
-      </button>
+      <Page active={page == "grid"}>
+        <UserGrid
+          users={users}
+          onSelected={(user) => {
+            setUser(user);
+            setPage("form");
+          }}
+        />
+      </Page>
+      <Page active={page == "form"}>
+        <LoginForm user={user} goBack={() => setPage("grid")} />
+      </Page>
     </Wrapper>
   );
 }

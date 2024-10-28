@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 export default function UserGridItem({
   user,
   width,
+  onSelected,
 }: {
   user: LightDMUser;
   width: number;
+  onSelected: (user: LightDMUser) => void;
 }) {
   const image = user.image ?? greeter_config?.branding?.user_image;
 
@@ -43,9 +45,10 @@ export default function UserGridItem({
     <button
       className="group relative isolate grid cursor-pointer overflow-hidden rounded-xl bg-white/5 shadow focus:outline-none focus-visible:ring"
       style={{ width, backgroundImage: getBgImage() }}
+      onClick={() => onSelected(user)}
     >
       <div className="mx-auto p-8">
-        <div className="block size-32 overflow-hidden rounded-full bg-white/10 shadow">
+        <div className="block size-32 overflow-hidden rounded-full bg-white/30 shadow">
           {image ? (
             <img
               src={image}
@@ -60,7 +63,7 @@ export default function UserGridItem({
           )}
         </div>
       </div>
-      <div className="truncate bg-black/30 p-4 text-center text-xl font-semibold leading-none">
+      <div className="truncate bg-black/25 p-4 text-center text-xl font-semibold leading-none">
         {user.display_name || user.username}
       </div>
       <div className="absolute inset-0 -z-10 bg-white/10 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"></div>
