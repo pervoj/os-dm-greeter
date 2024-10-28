@@ -77,6 +77,13 @@ function App() {
         <ChevronRight className="size-4" />
       </button>
 
+      <pre
+        className="fixed"
+        style={{ top: globalPadding, left: globalPadding }}
+      >
+        {JSON.stringify(greeter_config?.branding, null, 2)}
+      </pre>
+
       {logo && (
         <img
           src={logo}
