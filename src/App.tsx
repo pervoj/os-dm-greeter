@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import { greeter_config, lightdm } from "nody-greeter-types";
+import { lightdm } from "nody-greeter-types";
 import BatteryIndicator from "./components/battery-indicator";
 import UserGrid from "./components/user-grid";
 import { globalPadding } from "./constants";
@@ -8,6 +8,7 @@ import image30 from "./images/30.jpg";
 import image44 from "./images/44.jpg";
 import imageDomi from "./images/dominik.jpg";
 import imagePervoj from "./images/pervoj.png";
+import { branding } from "./utils/branding";
 
 const users = lightdm?.users ?? [
   {
@@ -57,9 +58,9 @@ const users = lightdm?.users ?? [
   },
 ];
 
-const logo = greeter_config?.branding?.logo;
-
 function App() {
+  const logo = branding?.logo_image;
+
   return (
     <div
       className="dark fixed inset-0 grid h-screen w-screen cursor-default select-none items-center bg-neutral-900 text-neutral-100"
@@ -76,13 +77,6 @@ function App() {
         Enter User Name
         <ChevronRight className="size-4" />
       </button>
-
-      <pre
-        className="fixed"
-        style={{ top: globalPadding, left: globalPadding }}
-      >
-        {JSON.stringify(greeter_config?.branding, null, 2)}
-      </pre>
 
       {logo && (
         <img
