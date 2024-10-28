@@ -1,74 +1,13 @@
 import { ChevronRight } from "lucide-react";
-import { lightdm } from "nody-greeter-types";
-import BatteryIndicator from "./components/battery-indicator";
 import UserGrid from "./components/user-grid";
+import Wrapper from "./components/wrapper";
 import { globalPadding } from "./constants";
+import { users } from "./utils/users";
 
-import image30 from "./images/30.jpg";
-import image44 from "./images/44.jpg";
-import imageDomi from "./images/dominik.jpg";
-import imagePervoj from "./images/pervoj.png";
-import { branding } from "./utils/branding";
-
-const users = lightdm?.users ?? [
-  {
-    username: "pervoj",
-    display_name: "Vojtěch Perník",
-    image: imagePervoj,
-  },
-  {
-    username: "domi",
-    display_name: "Dominik Bartuška",
-    image: imageDomi,
-  },
-  {
-    username: "jdoe",
-    display_name: "John Doe",
-    image: image44,
-  },
-  {
-    username: "fbar",
-    display_name: "Foo Bar",
-    image: image30,
-  },
-  {
-    username: "fbar2",
-    display_name: "Foo Bar",
-    image: image30,
-  },
-  {
-    username: "fbar3",
-    display_name: "Foo Bar",
-    image: "",
-  },
-  {
-    username: "fbar4",
-    display_name: "Foo Bar",
-    image: image30,
-  },
-  {
-    username: "fbar5",
-    display_name: "Foo Bar",
-    image: image30,
-  },
-  {
-    username: "fbar6",
-    display_name: "Foo Bar",
-    image: image30,
-  },
-];
-
-function App() {
-  const logo = branding?.logo_image;
-
+export default function App() {
   return (
-    <div
-      className="dark fixed inset-0 grid h-screen w-screen cursor-default select-none items-center bg-neutral-900 text-neutral-100"
-      style={{ padding: globalPadding }}
-    >
+    <Wrapper>
       <UserGrid users={users} />
-
-      <BatteryIndicator />
 
       <button
         className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
@@ -77,18 +16,6 @@ function App() {
         Enter User Name
         <ChevronRight className="size-4" />
       </button>
-
-      {logo && (
-        <img
-          src={logo}
-          alt=""
-          className="fixed block"
-          style={{ bottom: globalPadding, left: globalPadding }}
-          draggable="false"
-        />
-      )}
-    </div>
+    </Wrapper>
   );
 }
-
-export default App;
