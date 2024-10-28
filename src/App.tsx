@@ -66,6 +66,12 @@ function App() {
     >
       <UserGrid users={users} />
 
+      {lightdm?.can_access_battery && (
+        <div className="fixed left-0 right-0 top-4">
+          {JSON.stringify(lightdm?.battery_data, null, 2)}
+        </div>
+      )}
+
       <button
         className="fixed flex cursor-pointer items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold opacity-80 shadow transition-opacity hover:opacity-100 focus:outline-none focus-visible:ring"
         style={{ bottom: globalPadding, right: globalPadding }}
