@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="w-screen h-screen fixed inset-0 dark bg-neutral-900 text-neutral-100">
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -28,7 +28,7 @@ function App() {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
