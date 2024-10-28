@@ -38,7 +38,7 @@ export default function UserGridItem({
   return (
     <div
       key={user.username}
-      className="group relative isolate grid overflow-hidden rounded-xl bg-white/5 shadow"
+      className="group relative isolate grid cursor-pointer overflow-hidden rounded-xl bg-white/5 shadow"
       style={{ width, backgroundImage: getBgImage() }}
     >
       <div className="mx-auto p-8">

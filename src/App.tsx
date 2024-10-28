@@ -62,12 +62,12 @@ const globalPadding = 24;
 function App() {
   return (
     <div
-      className="dark fixed inset-0 grid h-screen w-screen select-none items-center bg-neutral-900 text-neutral-100"
+      className="dark fixed inset-0 grid h-screen w-screen cursor-default select-none items-center bg-neutral-900 text-neutral-100"
       style={{ padding: globalPadding }}
     >
       <UserGrid users={users} />
 
-      {logo && <img className="fixed bottom-4 left-4 max-h-8" src={logo} />}
+      {logo && <img className="absolute bottom-4 left-4 max-h-8" src={logo} />}
     </div>
   );
 }
