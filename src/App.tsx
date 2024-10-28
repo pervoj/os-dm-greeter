@@ -11,16 +11,17 @@ function App() {
           {users.map((user) => (
             <div
               key={user.username}
-              className="p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors grid grid-cols-[auto_1fr] gap-2 items-center"
+              className="p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors grid grid-cols-[auto_1fr] gap-2 items-center w-48"
             >
               <img
                 src={user.image}
                 alt=""
                 className="w-12 h-12 rounded-full border-2 border-white/5 bg-white/5"
               />
-              <div className="grid gap-1">
+              <div className="grid gap-1 leading-none">
                 <span className="text-lg font-bold">{user.display_name}</span>
                 <span>{user.username}</span>
+                <span>"{user.image}"</span>
               </div>
             </div>
           ))}
