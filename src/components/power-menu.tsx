@@ -57,7 +57,7 @@ const actions = [
   },
 ];
 
-export default function PowerButton() {
+export default function PowerMenu() {
   const [isOpened, setIsOpened] = useState(false);
 
   useEffect(() => {

@@ -51,7 +51,7 @@ export default function UserGrid({
         )}
 
         <TextButton
-          className="absolute left-1/2 -translate-x-1/2"
+          className="absolute left-1/2 -translate-x-1/2 pr-3"
           style={{ top: `calc(100% + ${globalPadding}px)` }}
           onClick={() => onSelected(undefined)}
         >

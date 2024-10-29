@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { globalPadding } from "../constants";
 import { branding } from "../utils/branding";
 import BatteryIndicator from "./battery-indicator";
-import PowerButton from "./power-button";
+import PowerMenu from "./power-menu";
 
 export default function Wrapper({ children }: { children?: ReactNode }) {
   const logo = branding?.logo_image;
@@ -16,14 +16,14 @@ export default function Wrapper({ children }: { children?: ReactNode }) {
 
       <BatteryIndicator />
 
-      <PowerButton />
+      <PowerMenu />
 
       {logo && (
         <img
           src={logo}
           alt=""
-          className="fixed block"
-          style={{ bottom: globalPadding, left: globalPadding }}
+          className="fixed left-1/2 block -translate-x-1/2"
+          style={{ bottom: globalPadding }}
           draggable="false"
         />
       )}
