@@ -5,30 +5,30 @@ import { IconButton } from "./button";
 import Page from "./page";
 
 const actions = [
-  {
-    active: true,
-    action: () => {},
-    icon: Power,
-    title: "Shutdown",
-  },
-  {
-    active: true,
-    action: () => {},
-    icon: MoonStar,
-    title: "Sleep",
-  },
-  {
-    active: true,
-    action: () => {},
-    icon: RefreshCcw,
-    title: "Reboot",
-  },
-  {
-    active: true,
-    action: () => {},
-    icon: MonitorPause,
-    title: "Hibernate",
-  },
+  // {
+  //   active: true,
+  //   action: () => {},
+  //   icon: Power,
+  //   title: "Shutdown",
+  // },
+  // {
+  //   active: true,
+  //   action: () => {},
+  //   icon: MoonStar,
+  //   title: "Sleep",
+  // },
+  // {
+  //   active: true,
+  //   action: () => {},
+  //   icon: RefreshCcw,
+  //   title: "Reboot",
+  // },
+  // {
+  //   active: true,
+  //   action: () => {},
+  //   icon: MonitorPause,
+  //   title: "Hibernate",
+  // },
 
   {
     active: lightdm?.can_shutdown,
