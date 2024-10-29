@@ -1,6 +1,6 @@
-import { MonitorPause, MoonStar, Power, RefreshCcw } from "lucide-react";
+import { MonitorPause, MoonStar, Power, RefreshCcw, XIcon } from "lucide-react";
 import { lightdm } from "nody-greeter-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { globalPadding } from "../constants";
 import { cn } from "../utils/cn";
 import { IconButton } from "./button";
@@ -60,6 +60,15 @@ const actions = [
 export default function PowerButton() {
   const [isOpened, setIsOpened] = useState(false);
 
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key == "Escape") setIsOpened(false);
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
       <IconButton
@@ -81,7 +90,7 @@ export default function PowerButton() {
           onClick={() => setIsOpened(false)}
         ></div>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="flex flex-row items-center gap-3 rounded-3xl border-2 border-white/5 bg-neutral-900 p-3">
+          <div className="flex flex-row items-center gap-3 rounded-3xl border-2 border-white/5 bg-neutral-900 p-3 shadow">
             {actions
               .filter(({ active, action }) => active && action)
               .map(({ action, icon: Icon, title }) => (
@@ -96,6 +105,12 @@ export default function PowerButton() {
                   <span className="font-semibold">{title}</span>
                 </button>
               ))}
+            <button
+              className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-neutral-800 p-2 shadow"
+              onClick={() => setIsOpened(false)}
+            >
+              <XIcon className="size-4" />
+            </button>
           </div>
         </div>
       </div>
