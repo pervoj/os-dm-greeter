@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, User } from "lucide-react";
 import { LightDMUser } from "nody-greeter-types";
 import {
   globalPadding,
@@ -42,6 +42,13 @@ export default function UserGrid({
             onSelected={onSelected}
           />
         ))}
+
+        {!list.length && (
+          <p className="flex items-center gap-1 leading-none opacity-80">
+            <User />
+            No Users Found
+          </p>
+        )}
 
         <TextButton
           className="absolute left-1/2 -translate-x-1/2"
